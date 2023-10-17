@@ -13,7 +13,7 @@
 </script>
 
 <div class="card card-compact w-64 bg-base-100 shadow-xl">
-  <figure><img src={item.img} alt={item.name} /></figure>
+  <figure><img class="w-64 h-64" src={item.img} alt={item.name} /></figure>
   <div class="card-body">
     <h2 class="card-title">{item.name}</h2>
     <div class="card-actions justify-end">
