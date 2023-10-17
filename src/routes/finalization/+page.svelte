@@ -22,7 +22,7 @@
   <div
     class="flex flex-col md:flex-row gap-4 justify-center items-center w-full"
   >
-    <div class="w-full md:w-2/3 flex gap-4 mt-10">
+    <div class="w-full md:w-2/3 flex flex-col gap-4 mt-10">
       {#each $cartStore.cartItems as cartItem}
         <div
           class="flex flex-row h-32 w-full items-center justify-between border-primary border-2 p-4"
@@ -58,7 +58,13 @@
     </div>
   </div>
 {:else}
-  <div class="text-center">
-    <span>Nie masz nic w koszyku</span>
+  <div
+    class="flex flex-col items-center justify-center text-4xl text-warning uppercase mt-10"
+  >
+    <h1>Nie masz nic w koszyku</h1>
+    <div class="mt-4 flex gap-4">
+      <a href="/equipment/strength" class="btn">Sprzęt siłowy</a>
+      <a href="/equipment/cardio" class="btn btn-secondary">Sprzęt cardio</a>
+    </div>
   </div>
 {/if}

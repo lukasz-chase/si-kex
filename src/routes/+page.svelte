@@ -1,5 +1,5 @@
 <div class="h-full w-full flex items-center justify-center">
-  <div class="flex items-center justify-center md:gap-10 p-4 md:p-20">
+  <div class="flex items-center justify-center md:gap-10 p-4 md:p-10">
     <div class="">
       <div class="text-5xl flex flex-col gap-4 font-bold">
         <h1 class="">Uzyskaj swoje</h1>

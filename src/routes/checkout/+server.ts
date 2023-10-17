@@ -30,7 +30,7 @@ export const POST: RequestHandler = async ({ request }) => {
     },
     mode: "payment",
     success_url: `${env.BASE}/finalization/success?session_id={CHECKOUT_SESSION_ID}`,
-    cancel_url: `${env.BASE}/cancel`,
+    cancel_url: `${env.BASE}/finalization/cancel`,
     phone_number_collection: {
       enabled: true,
     },
