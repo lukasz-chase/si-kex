@@ -23,4 +23,6 @@
 </script>
 
 <Nav />
-<slot />
+<div class="h-[calc(100vh-6rem)] w-full">
+  <slot />
+</div>
