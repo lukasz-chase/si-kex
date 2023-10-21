@@ -13,11 +13,13 @@
 </script>
 
 <div class="card card-compact w-64 bg-base-100 shadow-xl">
-  <figure><img class="w-64 h-64" src={item.img} alt={item.name} /></figure>
+  <figure>
+    <img class="h-64 w-64" src={item.img} alt={item.name} />
+  </figure>
   <div class="card-body">
-    <h2 class="card-title">{item.name}</h2>
+    <h2 class="card-title text-lg md:text-xl">{item.name}</h2>
     <div class="card-actions justify-end">
-      <p class="my-auto text-xl text-warning">{item.price}zł</p>
+      <p class="my-auto text-lg md:text-xl text-warning">{item.price}zł</p>
       <button
         class="btn btn-secondary"
         on:click={() => addItemToCartHandler(item)}>Do koszyka</button

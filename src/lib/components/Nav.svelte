@@ -9,15 +9,15 @@
 
 <div class="navbar bg-base-100 font-poppins">
   <div class="flex-1">
-    <a href="/" class="btn btn-ghost normal-case text-xl">Siłkex</a>
+    <a href="/" class="btn btn-ghost normal-case text-xl p-0">Siłkex</a>
   </div>
   <div class="flex-none">
-    <ul class="menu menu-horizontal">
+    <ul class="menu p-0 md:p-2 menu-horizontal gap-2">
       <li>
-        <a href="/equipment/strength">Sprzęt siłowy</a>
+        <a class="p-0 md:p-2" href="/equipment/strength">Sprzęt siłowy</a>
       </li>
       <li>
-        <a href="/equipment/cardio">Sprzęt cardio</a>
+        <a class="p-0 md:p-2" href="/equipment/cardio">Sprzęt cardio</a>
       </li>
     </ul>
     <div class="dropdown dropdown-end">
