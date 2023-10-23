@@ -1,7 +1,6 @@
 <script lang="ts">
   import { Editor } from "@tiptap/core";
   import type { PageData } from "./$types";
-  import { generateHTML } from "@tiptap/html";
   import StarterKit from "@tiptap/starter-kit";
   import { onDestroy, onMount } from "svelte";
 
