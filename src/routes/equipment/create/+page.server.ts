@@ -22,7 +22,7 @@ export const actions = {
     // }
     const formData = await request.formData();
     const name = formData.get("name") as string;
-    const description = formData.get("descriptionJSON") as string;
+    const description = formData.get("description") as string;
     const files = formData.getAll("itemFiles") as File[];
     const price = formData.get("price") as number;
     const category = formData.get("category") as string;

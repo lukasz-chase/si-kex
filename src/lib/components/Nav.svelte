@@ -8,7 +8,6 @@
     (total, item) => total + item.quantity,
     0
   );
-  $: console.log(mobileMenuOpened);
 </script>
 
 <nav class="">

@@ -11,7 +11,7 @@ export const actions = {
     const lastName = formData.get("lastName") as string;
     const address = formData.get("address") as string;
     const city = formData.get("city") as string;
-    console.log(name);
+
     if (!name || !lastName || !address || !city) {
       return fail(400, {
         name,

@@ -12,7 +12,10 @@
   };
 </script>
 
-<div class="card card-compact w-64 bg-base-100 shadow-xl">
+<a
+  href="/item/{item.id}"
+  class="card card-compact w-64 h-96 bg-base-100 shadow-xl"
+>
   <figure>
     <img class="h-64 w-64" src={item.img} alt={item.name} />
   </figure>
@@ -20,13 +23,13 @@
     <h2 class="card-title text-lg md:text-xl">{item.name}</h2>
     <div class="card-actions justify-end">
       <p class="my-auto text-lg md:text-xl text-warning">{item.price}zł</p>
-      <button
+      <!-- <button
         class="btn btn-secondary"
         on:click={() => addItemToCartHandler(item)}>Do koszyka</button
-      >
+      > -->
     </div>
   </div>
-</div>
+</a>
 {#if addedToCart}
   <div class="toast">
     <div class="alert alert-success">

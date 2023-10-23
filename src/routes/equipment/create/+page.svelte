@@ -71,18 +71,19 @@
         <label for="file" class="label">
           <span class="label-text">Zdjęcia przedmiotu</span>
         </label>
-        <div class="flex gap-4">
-          {#each itemImages as itemImage}
-            <button on:click={() => removeImage(itemImage)}>
-              <img
-                src={setPreview(itemImage)}
-                class="w-20 h-20 self-center my-2"
-                alt="przedmiot"
-              />
-            </button>
-          {/each}
-        </div>
-
+        {#if itemImages}
+          <div class="flex gap-4">
+            {#each itemImages as itemImage}
+              <button on:click={() => removeImage(itemImage)}>
+                <img
+                  src={setPreview(itemImage)}
+                  class="w-20 h-20 self-center my-2"
+                  alt="przedmiot"
+                />
+              </button>
+            {/each}
+          </div>
+        {/if}
         <input
           on:change={setImages}
           type="file"
@@ -94,7 +95,7 @@
         <input
           type="text"
           bind:value={description}
-          name="descriptionJSON"
+          name="description"
           class="hidden"
         />
         {#if form?.formError}<p class="text-error text-xl">

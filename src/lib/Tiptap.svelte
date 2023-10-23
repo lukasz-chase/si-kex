@@ -21,7 +21,7 @@
         },
       },
       onUpdate: ({ editor }) => {
-        description = JSON.stringify(editor.getJSON());
+        description = editor.getHTML();
         // send the content to an API here
       },
     });
