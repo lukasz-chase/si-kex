@@ -24,15 +24,20 @@ export const actions = {
     const name = formData.get("name") as string;
     const description = formData.get("description") as string;
     const files = formData.getAll("itemFiles") as File[];
-    const price = formData.get("price") as number;
+    const price = formData.get("price") as string;
     const category = formData.get("category") as string;
     let fileNames: string[] = [];
-
-    if (!files || !name || !description || !price) {
+    console.log(files);
+    console.log(name);
+    console.log(description);
+    console.log(price);
+    console.log(category);
+    if (!files || !name || !description || !price || !category) {
       return fail(400, {
         name,
         description,
         price,
+        category,
         formError: "Pola nie mogą być puste",
       });
     }
@@ -60,7 +65,7 @@ export const actions = {
         .insert({
           name,
           description,
-          price,
+          price: Number(price),
           category,
           images: fileNames,
         });
@@ -70,6 +75,7 @@ export const actions = {
           name,
           description,
           price,
+          category,
           formError: addEquipmentError.message,
         });
       }
@@ -78,7 +84,7 @@ export const actions = {
         name,
         description,
         price,
-        files,
+        category,
         formError: error.message,
       });
     }

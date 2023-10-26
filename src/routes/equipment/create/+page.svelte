@@ -28,8 +28,6 @@
       await update();
     };
   };
-  const removeImage = (itemImage: File) =>
-    (itemImages = itemImages.filter((item: File) => item !== itemImage));
 </script>
 
 <div class="w-full flex flex-col items-center">
@@ -74,13 +72,11 @@
         {#if itemImages}
           <div class="flex gap-4">
             {#each itemImages as itemImage}
-              <button on:click={() => removeImage(itemImage)}>
-                <img
-                  src={setPreview(itemImage)}
-                  class="w-20 h-20 self-center my-2"
-                  alt="przedmiot"
-                />
-              </button>
+              <img
+                src={setPreview(itemImage)}
+                class="w-20 h-20 self-center my-2"
+                alt="przedmiot"
+              />
             {/each}
           </div>
         {/if}

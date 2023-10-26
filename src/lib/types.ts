@@ -1,8 +1,10 @@
 export interface item {
   id: string;
-  img: string;
+  images: string[];
   name: string;
   price: number;
+  category: string;
+  description: string;
 }
 
 export interface cartItem extends item {

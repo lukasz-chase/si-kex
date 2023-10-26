@@ -1,3 +1,5 @@
+// src/app.d.ts
+
 import { SupabaseClient, Session } from "@supabase/supabase-js";
 import { Database } from "./DatabaseDefinitions";
 

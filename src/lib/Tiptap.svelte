@@ -17,7 +17,7 @@
       },
       editorProps: {
         attributes: {
-          class: "textarea textarea-bordered h-24",
+          class: "textarea textarea-bordered min-h-24",
         },
       },
       onUpdate: ({ editor }) => {

@@ -3,7 +3,7 @@
     addItemToCart,
     cartStore,
     removeItemFromCart,
-  } from "$lib/Stores/CartStore";
+  } from "$lib/stores/CartStore";
   async function checkout() {
     const data = await fetch("/checkout", {
       method: "POST",
@@ -28,7 +28,7 @@
           class="flex flex-row h-32 w-full items-center justify-between border-primary border-2 p-2 md:p-4"
         >
           <div class="h-full flex items-center gap-4">
-            <img class="h-full" src={cartItem.img} alt={cartItem.name} />
+            <img class="h-full" src={cartItem.images[0]} alt={cartItem.name} />
             <span class="font-bold text-md md:text-2xl">{cartItem.name}</span>
           </div>
           <div class="flex flex-col">
