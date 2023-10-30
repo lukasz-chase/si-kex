@@ -15,3 +15,12 @@ export interface CartStore {
   cartItems: cartItem[];
   cartPrice: number;
 }
+
+export interface Order {
+  created_at: string;
+  id: number;
+  items: string;
+  price: number;
+  status: string;
+  user_id: string;
+}

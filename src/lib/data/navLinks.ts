@@ -10,12 +10,8 @@ export const navEquipmentLinks = [
 ];
 export const navUserLinks = [
   {
-    name: "Konto",
-    href: (id: string) => `/user`,
-  },
-  {
     name: "Zamówienia",
-    href: (id: string) => `/user/${id}`,
+    href: (id: string) => `/user/${id}/orders`,
   },
   {
     name: "Ustawienia",

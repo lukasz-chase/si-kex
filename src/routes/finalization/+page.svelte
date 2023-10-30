@@ -12,6 +12,7 @@
       },
       body: JSON.stringify({
         items: $cartStore.cartItems,
+        price: $cartStore.cartPrice,
       }),
     }).then((data) => data.json());
     window.location.replace(data.url);

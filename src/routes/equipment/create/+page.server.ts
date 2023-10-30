@@ -27,11 +27,7 @@ export const actions = {
     const price = formData.get("price") as string;
     const category = formData.get("category") as string;
     let fileNames: string[] = [];
-    console.log(files);
-    console.log(name);
-    console.log(description);
-    console.log(price);
-    console.log(category);
+
     if (!files || !name || !description || !price || !category) {
       return fail(400, {
         name,
