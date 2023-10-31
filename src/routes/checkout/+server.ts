@@ -52,7 +52,7 @@ export const POST: RequestHandler = async ({
       items: JSON.stringify(cartItems),
       price: cartPrice,
       user_id: session.user.id,
-      status: "Payment pending",
+      status: "Oczekiwanie na płatność",
     })
     .select();
   if (ordersError) {
