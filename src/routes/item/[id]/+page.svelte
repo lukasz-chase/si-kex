@@ -43,10 +43,10 @@
   };
 </script>
 
-<div class="p-8 mx-auto max-w-screen-xl">
-  <div class="flex">
-    <div class="w-1/2 flex justify-center">
-      <div class="relative w-1/2 mr-4 h-96">
+<div class="p-4 md:p-8 mx-auto max-w-screen-xl">
+  <div class="flex flex-col md:flex-row">
+    <div class="w-full md:w-1/2 flex justify-center">
+      <div class="relative w-full md:w-1/2 md:mr-4 h-96">
         <button
           class="btn btn-circle btn-sm absolute top-1/2 left-2 -translate-y-1/2 z-10"
           on:click={decreaseImageIndex}>-</button
@@ -64,8 +64,7 @@
       </div>
     </div>
 
-    <!-- Right side: Price and Description -->
-    <div class="w-1/2">
+    <div class="w-full md:w-1/2">
       <h1 class="text-3xl font-bold mb-4">{data.itemData.name}</h1>
       <p class="text-xl font-semibold mb-4 tabular-nums">
         {data.itemData.price} ZŁ

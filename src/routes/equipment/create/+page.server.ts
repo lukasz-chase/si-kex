@@ -1,25 +1,25 @@
-import { error, fail, redirect } from "@sveltejs/kit";
+import { error, fail } from "@sveltejs/kit";
 import { PRIVATE_BUCKET_URL } from "$env/static/private";
 import { supabase } from "$lib/supabaseClient";
 
-// export const load = async ({ locals: { getSession }, params }) => {
-//   const session = await getSession();
-//   const { id } = params;
-//   if (!session || id !== session.user.id) {
-//     throw error(401, { message: "Unauthorized" });
-//   }
-//   return {
-//     session,
-//   };
-// };
-export const actions = {
-  default: async ({ request }) => {
-    // const session = await getSession();
+export const load = async ({ locals: { getSession, supabase } }) => {
+  const session = await getSession();
+  if (!session || session.user.user_metadata.role === "user") {
+    throw error(401, { message: "Brak dostępu" });
+  }
+  return {
+    session,
+  };
+};
 
-    // if (!session) {
-    //   // the user is not signed in
-    //   throw error(401, { message: "Unauthorized" });
-    // }
+export const actions = {
+  default: async ({ request, locals: { getSession } }) => {
+    const session = await getSession();
+
+    if (!session) {
+      // the user is not signed in
+      throw error(401, { message: "Brak dostępu" });
+    }
     const formData = await request.formData();
     const name = formData.get("name") as string;
     const description = formData.get("description") as string;

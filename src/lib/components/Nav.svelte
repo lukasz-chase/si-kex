@@ -15,11 +15,16 @@
   const handleSignOut = async () => {
     await supabase.auth.signOut();
     goto("/auth/login");
+    closeDropdowns();
   };
   $: cartLength = $cartStore.cartItems.reduce(
     (total, item) => total + item.quantity,
     0
   );
+  const closeDropdowns = () => {
+    mobileMenuOpened = false;
+    userMenuOpened = false;
+  };
 </script>
 
 <nav class="">
@@ -46,14 +51,17 @@
         class="flex flex-1 items-center justify-center sm:items-stretch sm:justify-start"
       >
         <div class="flex items-center">
-          <a href="/" class="btn btn-ghost normal-case text-xl p-2 font-bold"
-            >Siłkex</a
+          <a
+            href="/"
+            on:click={closeDropdowns}
+            class="btn btn-ghost normal-case text-xl p-2 font-bold">Siłkex</a
           >
         </div>
         <div class="hidden sm:ml-6 sm:block">
           <div class="flex space-x-4">
             {#each navEquipmentLinks as equipmentLink}
               <a
+                on:click={closeDropdowns}
                 class="btn btn-ghost normal-case text-lg p-2"
                 href={equipmentLink.href}>{equipmentLink.name}</a
               >
@@ -68,6 +76,7 @@
           href="/finalization"
           class="btn btn-ghost normal-case text-lg p-0 md:p-2 md:mr-4"
           aria-current="page"
+          on:click={closeDropdowns}
         >
           <div class="indicator">
             <Cart />
@@ -99,6 +108,7 @@
             >
               {#each navUserLinks as userLink}
                 <a
+                  on:click={closeDropdowns}
                   href={userLink.href(session.user.id)}
                   class="btn btn-ghost w-full"
                   role="menuitem"
@@ -133,15 +143,19 @@
     <div class="space-y-1 px-2 pb-3 pt-2">
       {#each navEquipmentLinks as equipmentLink}
         <a
+          on:click={closeDropdowns}
           class="block btn text-start btn-ghost rounded-md px-3 py-2 text-base font-medium"
           href={equipmentLink.href}>{equipmentLink.name}</a
         >
       {/each}
-      <a
-        href="/auth/login"
-        class="btn btn-ghost text-start block rounded-md px-3 py-2 text-base font-medium"
-        >Logowanie</a
-      >
+      {#if !session?.user}
+        <a
+          on:click={closeDropdowns}
+          href="/auth/login"
+          class="btn btn-ghost text-start block rounded-md px-3 py-2 text-base font-medium"
+          >Logowanie</a
+        >
+      {/if}
     </div>
   </div>
 </nav>

@@ -1,29 +1,40 @@
 <script lang="ts">
+  import { goto } from "$app/navigation";
   import {
     addItemToCart,
     cartStore,
     removeItemFromCart,
   } from "$lib/stores/CartStore";
+  import type { PageData } from "./$types";
+
+  export let data: PageData;
+  let { session } = data;
+
   async function checkout() {
-    const data = await fetch("/checkout", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({
-        items: $cartStore.cartItems,
-        price: $cartStore.cartPrice,
-      }),
-    }).then((data) => data.json());
-    window.location.replace(data.url);
+    if (session?.user) {
+      const data = await fetch("/checkout", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          items: $cartStore.cartItems,
+          price: $cartStore.cartPrice,
+        }),
+      }).then((data) => data.json());
+      cartStore.update((store) => ({ ...store, cartItems: [] }));
+      window.location.replace(data.url);
+    } else {
+      goto("/auth/login");
+    }
   }
 </script>
 
 {#if $cartStore.cartItems.length > 0}
   <div
-    class="flex flex-col md:flex-row gap-4 justify-center items-center w-full"
+    class="flex flex-col md:flex-row justify-between gap-4 mx-auto max-w-7xl px-2 sm:px-6 lg:px-8"
   >
-    <div class="w-full md:w-2/3 flex flex-col gap-4 mt-10">
+    <div class="flex flex-col gap-4 mt-10 w-full max-w-4xl">
       {#each $cartStore.cartItems as cartItem}
         <div
           class="flex flex-row h-32 w-full items-center justify-between border-primary border-2 p-2 md:p-4"

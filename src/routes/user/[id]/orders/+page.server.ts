@@ -1,10 +1,9 @@
 import { error } from "@sveltejs/kit";
 
-export const load = async ({ locals: { getSession } }) => {
+export const load = async ({ locals: { getSession }, params }) => {
   const session = await getSession();
-
-  if (!session) {
-    // the user is not signed in
+  const { id } = params;
+  if (!session || id !== session.user.id) {
     throw error(401, { message: "Unauthorized" });
   }
 
