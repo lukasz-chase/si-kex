@@ -25,6 +25,7 @@
     loading = true;
     return async ({ update }) => {
       loading = false;
+      description = "";
       await update();
     };
   };

@@ -49,7 +49,7 @@
       <div class="relative w-full md:w-1/2 md:mr-4 h-96">
         <button
           class="btn btn-circle btn-sm absolute top-1/2 left-2 -translate-y-1/2 z-10"
-          on:click={decreaseImageIndex}>-</button
+          on:click={decreaseImageIndex}>{"<"}</button
         >
 
         <img
@@ -59,7 +59,7 @@
         />
         <button
           class="btn btn-circle btn-sm absolute top-1/2 right-2 -translate-y-1/2 z-10"
-          on:click={increaseImageIndex}>+</button
+          on:click={increaseImageIndex}>{">"}</button
         >
       </div>
     </div>

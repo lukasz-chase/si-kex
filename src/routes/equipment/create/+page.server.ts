@@ -1,4 +1,4 @@
-import { error, fail } from "@sveltejs/kit";
+import { error, fail, redirect } from "@sveltejs/kit";
 import { PRIVATE_BUCKET_URL } from "$env/static/private";
 import { supabase } from "$lib/supabaseClient";
 
@@ -85,6 +85,6 @@ export const actions = {
       });
     }
 
-    return { success: true };
+    return { success: true, name: "", description: "", price: 0 };
   },
 };
