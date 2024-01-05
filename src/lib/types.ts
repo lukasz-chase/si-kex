@@ -1,4 +1,4 @@
-export interface item {
+export interface Item {
   id: string;
   images: string[];
   name: string;
@@ -7,7 +7,7 @@ export interface item {
   description: string;
 }
 
-export interface cartItem extends item {
+export interface cartItem extends Item {
   quantity: number;
 }
 

@@ -5,6 +5,7 @@
   import { onDestroy, onMount } from "svelte";
   import { addItemToCart } from "$lib/stores/CartStore";
   import Check from "$lib/icons/check.svelte";
+  import type { Item } from "$lib/types";
 
   export let data: PageData;
   let imageIndex: number = 0;
@@ -36,7 +37,7 @@
   const increaseImageIndex = () => {
     imageIndex = (imageIndex + 1) % data.itemData.images.length;
   };
-  const addItemToCartHandler = (item: item) => {
+  const addItemToCartHandler = (item: Item) => {
     addItemToCart({ ...item, quantity: 1 });
     addedToCart = true;
     setTimeout(() => (addedToCart = false), 1000);
