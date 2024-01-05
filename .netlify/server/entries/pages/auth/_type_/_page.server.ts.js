@@ -1,16 +1,14 @@
-import { fail, redirect } from "@sveltejs/kit";
-
-export const actions = {
+import { f as fail, r as redirect } from "../../../../chunks/index.js";
+const actions = {
   register: async ({ request, locals: { supabase } }) => {
     const formData = await request.formData();
-    const email = formData.get("email") as string;
-    const password = formData.get("password") as string;
-
+    const email = formData.get("email");
+    const password = formData.get("password");
     if (!email || !password) {
       return fail(500, {
         message: "Pola nie mogą być puste",
         success: false,
-        email,
+        email
       });
     }
     const { error } = await supabase.auth.signUp({
@@ -18,31 +16,29 @@ export const actions = {
       password,
       options: {
         data: {
-          role: "user",
-        },
-      },
+          role: "user"
+        }
+      }
     });
-
     if (error) {
       return fail(500, {
         message: "Błąd, Spróbuj ponownie później",
         success: false,
-        email,
+        email
       });
     }
     const { error: signInError, data } = await supabase.auth.signInWithPassword(
       {
         email,
-        password,
+        password
       }
     );
     await supabase.from("profiles").upsert({ id: data?.user.id });
-
     if (signInError) {
       return fail(500, {
         message: "Błąd, Spróbuj ponownie później",
         success: false,
-        email,
+        email
       });
     }
     if (data) {
@@ -51,29 +47,31 @@ export const actions = {
   },
   login: async ({ request, locals: { supabase } }) => {
     const formData = await request.formData();
-    const email = formData.get("email") as string;
-    const password = formData.get("password") as string;
+    const email = formData.get("email");
+    const password = formData.get("password");
     if (!email || !password) {
       return fail(500, {
         message: "Pola nie mogą być puste",
         success: false,
-        email,
+        email
       });
     }
     const { data, error } = await supabase.auth.signInWithPassword({
       email,
-      password,
+      password
     });
-
     if (error) {
       return fail(500, {
         message: "Błąd, Spróbuj ponownie później",
         success: false,
-        email,
+        email
       });
     }
     if (data) {
       throw redirect(303, "/");
     }
-  },
+  }
+};
+export {
+  actions
 };
