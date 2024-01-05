@@ -4,7 +4,7 @@
     addItemToCart,
     cartStore,
     removeItemFromCart,
-  } from "$lib/stores/CartStore";
+  } from "$lib/asd/CartStore
   import type { PageData } from "./$types";
 
   export let data: PageData;

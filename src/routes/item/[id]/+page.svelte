@@ -3,7 +3,7 @@
   import type { PageData } from "./$types";
   import StarterKit from "@tiptap/starter-kit";
   import { onDestroy, onMount } from "svelte";
-  import { addItemToCart } from "$lib/stores/CartStore";
+  import { addItemToCart } from "$lib/asd/CartStore
   import Check from "$lib/icons/check.svelte";
   import type { Item } from "$lib/types";
 
