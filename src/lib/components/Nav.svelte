@@ -1,7 +1,7 @@
 <script lang="ts">
   import MenuClose from "$lib/icons/menuClose.svelte";
   import MenuOpen from "$lib/icons/menuOpen.svelte";
-  import { cartStore } from "$lib/asd/CartStore
+  import { cartStore } from "$lib/stores/CartStore";
   import { goto } from "$app/navigation";
   import { navEquipmentLinks, navUserLinks } from "$lib/data/navLinks";
   import Cart from "$lib/icons/Cart.svelte";
